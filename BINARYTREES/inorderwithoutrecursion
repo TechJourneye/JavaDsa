@@ -1,0 +1,10 @@
+Algorithm InOrderTraversal(root):
+    1. Initialize an empty stack `S`.
+    2. Initialize a variable `current` as `root`.
+    3. While `current` is not NULL or `S` is not empty, do the following:
+        a. While `current` is not NULL:
+            i.   Push `current` onto the stack `S`.
+            ii.  Move `current` to its left child.
+        b. Pop the top node from the stack `S`, set it to `current`.
+        c. Visit the node `current`.
+        d. Move `current` to its right child.
