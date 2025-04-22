@@ -2,103 +2,42 @@
 
 public class ll{
  public static class LLStack{
-    static class Node{
-        int data;
-        Node next;
-        Node(int data){
-            this.data=data;
-            this.next=null;
-        }
-    }
-        public static Node head=null;
-        static int size=0;
-        //is empty
-        boolean isEmpty(){
-            return head==null;
-        }
-        // push
-        void push(int data){
-            Node newnode=new Node(data);
-            if(head==null){
-                head=newnode;
-                size++;
-                return;
-            }
-            newnode.next=head;
-            head=newnode;
-            // return head.data;
-            size++;
-        }
-        // int pop
-        int pop(){
-            if(head==null){
-                System.out.println("st is empty");
-                return -1;
-            }
-            int data=head.data;
-            head=head.next;
-            size--;
-            return data;
-        }
-
-        int peek(){
-            if(head==null){
-                System.out.println("st is empty");
-                return -1;
-            }
-            return head.data;
-        }
-     void displayrev(){
-        Node temp=head;
-        while(temp!=null){
-            System.out.print(temp.data+" ");
-            temp=temp.next;
-        }
-        System.out.println();
-     }
-
-     int size(){
-        return size;
-     }
-    
-      void displayrec(Node h){
-        if(h==null){
+      static class Node {
+        int data; Node next;
+         public Node(int data) {
+           this.data=data;
+         }              
+      }
+      public static Node head;
+      boolean isEmpty(){
+        return head==null;
+      }
+      void push(int data){
+        Node newnNode=new Node(data);
+        if(isEmpty()){
+            head=newnNode;
             return;
         }
-        displayrec(h.next);
-        System.out.print(h.data+" ");
+       newnNode.next=head;
+       head=newnNode;
+        
       }
-
-      void display(){
-       displayrec(head);
-       System.out.println();
+      int pop(){
+        if(isEmpty()) return -1;
+        int val=head.data;
+        head=head.next;
+        return val;
       }
     }
 
     public static void main(String[] args) {
          LLStack st=new LLStack();
-          st.push(3);
-          st.push(7);
-          st.push(9);
-          st.push(39);
-          st.push(70);
-          st.push(90);
-          System.out.println(st.peek());
-          st.display();
-          st.pop();
-          st.display();
-          System.out.println(st.size());
-          st.pop();
-          st.display();
-          st.pop();
-          st.display();
-          st.pop();
-          st.display();
-          st.pop();
-          st.display();
-          st.pop();
-          st.display();
-          st.pop();
-          st.display();
+         st.push(3);
+         st.push(4);
+         st.push(5);
+         st.push(6);
+         while(!st.isEmpty()){
+            System.out.println(st.pop());
+         }
     }
 }

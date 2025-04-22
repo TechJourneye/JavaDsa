@@ -12,11 +12,13 @@ public class mergeSort {
    public static void mergesort(int arr[],int si,int ei){
   
     if(si>=ei) return;
-
+  // Calculate Mid
     int mid= si+(ei-si)/2;
-
+//    call for left part
     mergesort(arr, si, mid);
+    // call for right part
     mergesort(arr, mid+1, ei);
+    // Merge the SubArray Backbone of merge sort
     merge(arr, si, mid, ei);
    
    }

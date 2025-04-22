@@ -23,24 +23,26 @@ public class circularQ{
                 System.out.println("queue is full");
                 return;
             }
+
+            rear=(rear+1)%size;
             if(front==-1){
                 front=0;
             }
-            rear=(rear+1)%size;
             arr[rear]=data;
+            
         }
         int remove(){
             if(isEmpty()){
                 System.out.println("array is empty");
                 return -1;
             }
-            int result=arr[front];
+            int val=arr[front];
             if(front==rear){
                 front=rear=-1;
             }else{
                 front=(front+1)%size;
             }
-            return result;
+            return val;           
         }
         int peek(){
             if(isEmpty()){

@@ -8,16 +8,17 @@ public class quickSort{
     }
 
     public static void quickSort(int arr[],int si,int ei){
-       
         if(si>=ei){
             return;
         }
         int Pidx=partition(arr,si,ei);
+        //call for left part
         quickSort(arr, si, Pidx-1);
+        // call for Right part
         quickSort(arr, Pidx+1, ei);
     }
     public static int partition(int arr[],int si,int ei){
-         int pivot=arr[si];
+         int pivot=arr[ei];
          int i=si-1;
          for(int j=si;j<ei;j++){
             if(arr[j]<=pivot){
@@ -30,8 +31,7 @@ public class quickSort{
          i++;
         int temp = arr[i];
         arr[i] =pivot;
-        arr[si] = temp;
-
+        arr[ei] = temp;
         return i;
     }
 

@@ -1,69 +1,31 @@
 import java.util.*;
 public class arraylist_st {
-    public static class Node{
-        int data;
-        Node next;
-        Node(int data){
-            this.data=data;
-            this.next=null;
-        }
-    }
-    public static class Stackk{
-        public static Node head=null;
-        boolean isEmpty(){
-            return head==null;
-        }
-        //push
-        void push(int data){
-          Node newhead=new Node(data) ;
-          if(head==null){
-            head=newhead;
-            return;
-          }
-          newhead.next=head;
-           head=newhead;
-        }
-        //pop
-        int pop(){
-            if(isEmpty()){
-                return -1;
-            }
-            int top=head.data;
-            head=head.next;
-            return top;
-        } 
-        //peek
-        int peek(){
-            if(isEmpty()){
-                return -1;
-            }
-            return head.data;
-        }
-        // public static ArrayList<Integer> list=new ArrayList<>();
-        //  public static boolean isEmpty(){
-        //     return list.size()==0;
+   
+        public static ArrayList<Integer> list=new ArrayList<>();
+         public static boolean isEmpty(){
+            return list.size()==0;
            
-        //  }
-        //  //push
-        //  void push(int data){
-        //   list.add(data);
-        //  }
-        //  //pop
-        //  int pop(){
-        //     if(isEmpty()){
-        //         return -1;
-        //     }
-        //     return list.remove(list.size()-1);
-        //  }
-        //  //peak
-        //  int peek(){
-        //     if(isEmpty()){
-        //         return -1;
-        //     }
-        //     return list.get(list.size()-1);
-        //  }
+         }
+         //push
+         void push(int data){
+          list.add(data);
+         }
+         //pop
+         int pop(){
+            if(isEmpty()){
+                return -1;
+            }
+            return list.remove(list.size()-1);
+         }
+         //peak
+         int peek(){
+            if(isEmpty()){
+                return -1;
+            }
+            return list.get(list.size()-1);
+         }
 
-    }
+  
   public static String reverse(String str){
        Stack<Character> s=new Stack<>();
        int idx=0;

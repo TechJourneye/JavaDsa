@@ -2,63 +2,51 @@
 
 public class queue{
     public static class Queue{
-        public static int arr[];
-        public static int size;
-        public static int rear;
-        public static int front;
+      public static int arr[];
+      static int rear;
+
         public Queue(int n) {
-            arr=new int[n];
-            size=n;
-            rear=-1;
-            front=-1;
+              arr=new int[n];
+              rear=-1;
         }
-        public  boolean isEmpty(){
-            return rear==-1&&front==-1;
+        boolean isEmpty(){
+            return rear==-1;
         }
-        public static boolean isFull() {
-             return (rear+1)%size==front;
-        }
-        public void add(int data){
-            if(isFull()){
-                System.out.println("queue is full");
+        void enqueue(int data){
+            if(rear==arr.length-1){
+                System.out.println("queue is empty");
                 return;
             }
-            if(front==-1){
-                front=0;
-            }
-            rear=(rear+1)%size;
+            rear=rear+1;
             arr[rear]=data;
         }
-        int remove(){
+
+        int dequeue(){
             if(isEmpty()){
-                System.out.println("array is empty");
+                System.out.println("Queue is empty");
                 return -1;
             }
-            int result=arr[front];
-            if(front==rear){
-                front=rear=-1;
-            }else{
-                front=(front+1)%size;
+            int val=arr[0];
+            for(int i=0;i<rear;i++){
+                arr[i]=arr[i+1];
             }
-            return result;
+            rear--;
+            return val;
         }
-        int peek(){
-            if(isEmpty()){
-                return -1;
-            }
-            return arr[front];
-        }
+       int peek(){
+        return arr[0];
+       }
         
     }
 
     public static void main(String[] args) {
      Queue q=new Queue(5);
-     q.add(1);
-     q.add(2);
-     q.add(3);
+     q.enqueue(1);
+     q.enqueue(2);
+     q.enqueue(3);
      while(!q.isEmpty()){
            System.out.println(q.peek());
-           q.remove();
+           q.dequeue();
      }
     }
 }

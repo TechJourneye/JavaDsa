@@ -29,6 +29,7 @@ class fractionalknapsack{
                 capacity=0;
                 break;
             }
+
         }
 
         System.out.println(finalVal);
